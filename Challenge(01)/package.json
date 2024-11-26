@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node dist/main.js",
-    "dev": "ts-node src/main.ts"
+    "dev": "ts-node src/main.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
   },
   "keywords": [],
   "author": "",
@@ -16,12 +18,16 @@
     "cors": "^2.8.5",
     "express": "^4.21.1",
     "pg": "^8.13.1",
-    "prisma": "^5.22.0"
+    "prisma": "^5.22.0",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
+  },
+  "prisma": {
+    "schema": "./prisma/schema.prisma"
   }
 }
