@@ -7,21 +7,22 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middlewares
-app.use("/tasks", taskRoutes);
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-// Rota principal
-app.get("/", (req, res) => {
-  res.send("Servidor rodando! Use a rota /tasks para interagir com o CRUD.");
-});
-// Servir a página HTML em /tasks
-app.get("/tasks", (req, res) => {
+
+// Servir a página HTML em /tasks somente para o navegador
+app.get("/tasks/html", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// Rotas
+// Rotas API para CRUD
 app.use("/tasks", taskRoutes);
+
+// Rota principal
+app.get("/", (req, res) => {
+  res.send("Servidor rodando! Use /tasks para o CRUD ou /tasks/html para a página de tarefas.");
+});
 
 // Inicialização do servidor
 app.listen(PORT, () => {
