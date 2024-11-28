@@ -1,0 +1,7 @@
+/* styles/globals.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aqui você pode adicionar seu estilo customizado */
